@@ -1,0 +1,17 @@
+# <%=config[:constant_name]%>
+
+TODO: Describe your project
+
+## Installation
+
+You can install this program by
+
+```
+$  npm install -g
+```
+
+## Usage
+
+```
+$  <%=config[:namespaced_path]%>
+```

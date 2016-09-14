@@ -1,0 +1,39 @@
+/*************
+ * Config.js *
+ *************
+ 
+ Require this file in to have it read all variables that exist in
+ env.json and make them accessible as process.env.YOUR_VARIABLE.
+ If an env variable already exists with that name, it will be used
+ instead of anything set in env.json
+
+*/
+
+var appRoot = require('path').resolve(__dirname + "/../.."),
+    env = require(appRoot + '/env.json');
+
+
+function getConfigs() {
+  var node_env = process.env.NODE_ENV || 'development',
+      configs = {};
+
+  Object.keys(env[node_env]).forEach(function (key) {
+    var value = env[node_env][key];
+
+    // Use actual env vars if they exist as system ENV VARs
+    if (process.env[key] != null) {
+      console.log("ENV variable found, ignoring env.json value for " + key);
+      configs[key] = process.env[key];
+    }
+    // Otherwise define the values listed in the config file as env vars
+    else {
+      configs[key] = value;
+      process.env[key] = value;
+    }
+
+  });
+
+  return configs;
+};
+
+module.exports = getConfigs();
