@@ -1,7 +1,7 @@
 // Put your javascript code here
 
 var appRoot = require('path').resolve(__dirname + "/..");
-var config = require(appRoot + '/lib/hello_app/config.js');
+var config = require(appRoot + '/lib/<%=config[:name]%>/config.js');
 
 // console.log(process.env.special_msg);
 console.log(process.env.error_msg);

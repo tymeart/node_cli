@@ -1,22 +1,22 @@
 {
-  "name": "hello_app",
+  "name": <%=config[:name].inspect%>,
   "description": "A basic node CLI app",
   "license": "MIT",
   "repository" : {
     "type": "git", 
-    "url": "git://github.com/TheNotary/hello_app.git"
+    "url": "https://github.com/<%=config[:author]%>/<%=config[:name]%>"
   },
 
   "version": "0.2.0",
 
-  "main" : "./lib/hello_app.js",
+  "main" : "./lib/<%=config[:name]%>.js",
   "bin": {
-    "hello_app": "./bin/hello_app"
+    "hello_app": "./bin/<%=config[:name]%>"
   },
   "preferGlobal": true,
 
   "scripts": {
-    "start": "node lib/hello_app.js"
+    "start": "node lib/<%=config[:name]%>.js"
   },
 
   "dependencies": {
